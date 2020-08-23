@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createRedirectResponse snapshot: createRedirectResponse 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "https://dkrk-blog.net",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;

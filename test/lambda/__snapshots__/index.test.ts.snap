@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`lambdaFunctions snapshot: /foo 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
+
+exports[`lambdaFunctions snapshot: /foo/ 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
+
+exports[`lambdaFunctions snapshot: /foo/?user=dkrk 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
+
+exports[`lambdaFunctions snapshot: /foo/baz/ 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
+
+exports[`lambdaFunctions snapshot: /foo/index.html 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
+
+exports[`lambdaFunctions snapshot: /foo/index.html?user=dkrk 1`] = `
+Object {
+  "headers": Object {
+    "location": Array [
+      Object {
+        "key": "Location",
+        "value": "/bar/",
+      },
+    ],
+  },
+  "status": "301",
+  "statusDescription": undefined,
+}
+`;
