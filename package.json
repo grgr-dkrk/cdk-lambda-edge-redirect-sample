@@ -1,0 +1,65 @@
+{
+  "name": "cdk-lambda-edge-redirect-sample",
+  "version": "0.1.0",
+  "description": "AWS CDK sample for redirect with Lambda@Edge",
+  "license": "MIT",
+  "author": {
+    "name": "grgr-dkrk"
+  },
+  "bin": {
+    "cdk-alb-redirect": "index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:lambda": "ncc build src/lambda/index.ts -o src/lambda/dist/",
+    "watch": "tsc -w",
+    "test": "yarn build:lambda && jest --no-cache",
+    "cdk": "cdk",
+    "create:stg": "yarn build:lambda && cdk deploy {HostedZoneStack-staging,CertificateManagerStack-staging,CloudFrontStack-staging} --context environment=staging --require-approval never",
+    "create:prod": "yarn build:lambda && cdk deploy {HostedZoneStack-production,CertificateManagerStack-production,CloudFrontStack-production} --context environment=production --require-approval never",
+    "deploy:stg": "cdk deploy DeploymentStack-staging --context environment=staging --require-approval never",
+    "deploy:prod": "cdk deploy DeploymentStack-production --context environment=production --require-approval never",
+    "synth:stg": "cdk synth DeploymentStack-staging --context environment=staging --require-approval never",
+    "synth:prod": "cdk synth DeploymentStack-production --context environment=production --require-approval never",
+    "destroy:stg": "cdk destroy \"*\" --context environment=staging",
+    "destroy:prod": "cdk destroy \"*\" --context environment=production",
+    "type-check": "tsc --noEmit",
+    "lint:secret": "secretlint '**/*'",
+    "lint": "eslint --fix && yarn run lint:secret"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.60.0",
+    "@aws-cdk/aws-ec2": "^1.60.0",
+    "@aws-cdk/aws-lambda": "^1.60.0",
+    "@secretlint/secretlint-rule-aws": "^2.1.0",
+    "@types/aws-lambda": "^8.10.61",
+    "@types/dotenv": "^8.2.0",
+    "@types/jest": "^25.2.1",
+    "@types/node": "10.17.5",
+    "@typescript-eslint/eslint-plugin": "^3.8.0",
+    "@typescript-eslint/parser": "^3.8.0",
+    "@vercel/ncc": "^0.23.0",
+    "aws-cdk": "1.57.0",
+    "eslint": "^7.6.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^25.5.0",
+    "prettier": "^2.0.5",
+    "secretlint": "^2.1.0",
+    "ts-jest": "^25.3.1",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-certificatemanager": "^1.60.0",
+    "@aws-cdk/aws-cloudfront": "^1.60.0",
+    "@aws-cdk/aws-elasticloadbalancingv2": "^1.60.0",
+    "@aws-cdk/aws-iam": "^1.60.0",
+    "@aws-cdk/aws-route53": "^1.60.0",
+    "@aws-cdk/aws-route53-targets": "^1.60.0",
+    "@aws-cdk/aws-s3": "^1.60.0",
+    "@aws-cdk/aws-s3-deployment": "^1.60.0",
+    "@aws-cdk/core": "1.60.0",
+    "dotenv": "^8.2.0",
+    "source-map-support": "^0.5.16"
+  }
+}
